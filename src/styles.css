@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #050816;
+  --text: #f8fbff;
+  --muted: #9aa8c7;
+  --line: rgba(255, 255, 255, 0.12);
+}
+
+.light {
+  color-scheme: light;
+  --bg: #f5f8ff;
+  --text: #101828;
+  --muted: #50607f;
+  --line: rgba(5, 8, 22, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(37, 217, 255, 0.32);
+}
+
+.noise::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  z-index: 60;
+  background-image: linear-gradient(115deg, rgba(255,255,255,.08) 0 1px, transparent 1px 8px);
+  mix-blend-mode: overlay;
+}
+
+.glass {
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.045));
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+.light .glass {
+  background: linear-gradient(135deg, rgba(255,255,255,.86), rgba(255,255,255,.54));
+  box-shadow: 0 20px 50px rgba(37, 64, 112, 0.12);
+}
+
+.section-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, #25d9ff, #9c6dff 52%, #62f3ca);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.orbital {
+  animation: orbit 24s linear infinite;
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.project-card {
+  transform-style: preserve-3d;
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.project-card:hover {
+  transform: perspective(900px) rotateX(5deg) rotateY(-7deg) translateY(-8px);
+}
+
+.syntax .token {
+  color: #62f3ca;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
