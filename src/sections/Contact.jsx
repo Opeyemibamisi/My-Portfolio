@@ -20,7 +20,7 @@ export default function Contact() {
             <a href={contact.whatsapp} target="_blank" rel="noreferrer" className="flex items-center gap-3 transition hover:text-cyanx"><MessageCircle className="text-cyanx" size={19} /> WhatsApp</a>
           </div>
         </div>
-        <form className="glass rounded-3xl p-5 md:p-7" onSubmit={(event) => { event.preventDefault(); setSent(true) }}>
+        {/* <form className="glass rounded-3xl p-5 md:p-7" onSubmit={(event) => { event.preventDefault(); setSent(true) }}>
           <div className="grid gap-4 md:grid-cols-2">
             {['Name', 'Email'].map((field) => (
               <label key={field} className="block text-sm font-bold">
@@ -45,7 +45,7 @@ export default function Contact() {
               </motion.p>
             ) : null}
           </AnimatePresence>
-        </form>
+        </form> */}
       </div>
     </section>
   )
